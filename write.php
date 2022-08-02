@@ -1,14 +1,17 @@
+<?php include_once("./inc/session_inc.php"); ?>
+<?php include_once("./inc/db.php"); ?>
+
 <?php
-    session_start();
+    if(!isset($_SESSION['id'])) {
+        echo "<script>alert('You're not Logged!');</script>";
+        echo "<script>location.href='./index.php'</script>";
+    }
 ?>
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>php-board</title>
-</head>
+<?php include_once("./inc/head.php"); ?>
+<?php include_once("./inc/header.php"); ?>
 <body>
-<form method="post" action="./write-chk.php">
+<form method="post" action="./api.php?execute=write">
     <div class="w-75 p-3" style="float:none; margin:0 auto; text-align:center">
         <div class="form-group">
             <label for="title">title</label>
@@ -21,6 +24,5 @@
         <button type="submit" class="btn btn-primary">submit</button>
     </div>
 </form>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
