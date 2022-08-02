@@ -57,7 +57,6 @@
         }
         $date = date_create() -> format('Y-m-d');
         $edit_query = "update board set title='{$title}', content='{$content}', date='{$date}' where idx = {$idx}";
-        echo $edit_query;
         $edit_res = $con -> query($edit_query);
         if(!$edit_res) {
             echo "<script>alert('Edit Failed..');</script>";
